@@ -20,15 +20,15 @@ end)
 vim.keymap.set("n", "<leader>svwm", function()
     require("vim-with-me").stopvimwithme()
 end)
--- 
+--
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dp]])
 
 -- next greatest remap ever : asbjornhaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>y", [["+y]])
 
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- this is going to get me cancelled
 vim.keymap.set("i", "<c-c>", "<esc>")
@@ -53,26 +53,37 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
-vim.keymap.set("n","<leader>vs", function()
+vim.keymap.set("n", "<leader>vs", function()
     vim.cmd("vsplit")
 end)
 
-vim.keymap.set("n","<leader>hs", function()
+vim.keymap.set("n", "<leader>hs", function()
     vim.cmd("split")
 end)
-vim.keymap.set("n","<leader>dy", function()
+vim.keymap.set("n", "<leader>dy", function()
     vim.cmd("Copilot enable")
 end)
-vim.keymap.set("n","<leader>d;", function()
+vim.keymap.set("n", "<leader>d;", function()
     vim.cmd("Copilot disable")
 end)
-vim.keymap.set("n","<leader>pv", function()
+vim.keymap.set("n", "<leader>pv", function()
     vim.cmd("TroubleToggle")
 end)
 vim.keymap.set("n", "<leader>tr", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
-vim.keymap.set("n","<leader>ta", function()
+vim.keymap.set("n", "<leader>ta", function()
     vim.cmd("TransparentToggle")
 end)
 
+-- vim.api.nvim._create_autocmd('TextYankPost', {
+--     group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
+--     callback = function()
+--         vim.highlight.on_yank()
+--     end
+-- })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})

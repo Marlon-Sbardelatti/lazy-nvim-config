@@ -27,6 +27,9 @@ return {
 		keys = {
 			{ "<leader>pf", "<cmd>lua require('telescope.builtin').find_files()<cr>" },
 			{ "<leader>pg", "<cmd>lua require('telescope.builtin').live_grep()<cr>" },
+			{ "<leader>of", "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
+			{ "<leader>ch", "<cmd>lua require('telescope.builtin').command_history()<cr>" },
+			{ "<leader>cs", "<cmd>lua require('telescope.builtin').colorscheme()<cr>" },
 		},
 	},
 }
