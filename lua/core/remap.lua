@@ -44,10 +44,11 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<cr>zz")
 
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<c-r><c-w>\>/<c-r><c-w>/gi<left><left><left>]])
+vim.keymap.set("n", "<leader>sg", [[:%s/]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<cr>", { silent = true })
 
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/hetzwga/packer.lua<cr>");
-vim.keymap.set("n", "<leader>mr", "<cmd>cellularautomaton make_it_rain<cr>");
+-- vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/hetzwga/packer.lua<cr>");
+-- vim.keymap.set("n", "<leader>mr", "<cmd>cellularautomaton make_it_rain<cr>");
 
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
@@ -76,14 +77,8 @@ vim.keymap.set("n", "<leader>ta", function()
     vim.cmd("TransparentToggle")
 end)
 
--- vim.api.nvim._create_autocmd('TextYankPost', {
---     group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
---     callback = function()
---         vim.highlight.on_yank()
---     end
--- })
 vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+    callback = function()
+        vim.highlight.on_yank()
+    end,
 })

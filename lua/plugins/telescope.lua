@@ -30,6 +30,7 @@ return {
 			{ "<leader>of", "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
 			{ "<leader>ch", "<cmd>lua require('telescope.builtin').command_history()<cr>" },
 			{ "<leader>cs", "<cmd>lua require('telescope.builtin').colorscheme()<cr>" },
+			{ "<leader>bf", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>" },
 		},
 	},
 }

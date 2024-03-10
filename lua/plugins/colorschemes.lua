@@ -23,6 +23,14 @@ return {
 			vim.cmd.colorscheme("tokyodark")
 		end,
 	},
+	{
+		"craftzdog/solarized-osaka.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			transparent = false,
+		},
+	},
 	{ "EdenEast/nightfox.nvim" },
 	{ "rebelot/kanagawa.nvim" },
 	{ "Mofiqul/dracula.nvim" },
