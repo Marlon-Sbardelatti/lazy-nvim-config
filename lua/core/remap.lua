@@ -70,8 +70,11 @@ end)
 vim.keymap.set("n", "<leader>pv", function()
     vim.cmd("TroubleToggle")
 end)
+
 vim.keymap.set("n", "<leader>tr", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+
+
 
 vim.keymap.set("n", "<leader>ta", function()
     vim.cmd("TransparentToggle")
