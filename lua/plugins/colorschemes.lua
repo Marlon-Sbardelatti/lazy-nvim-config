@@ -1,9 +1,11 @@
 return {
+    {
+        "luisiacc/gruvbox-baby",
+		name = "gruvbox-baby"
+    },
 	{
 		"catppuccin/nvim",
-		lazy = false,
 		name = "catppuccin",
-		priority = 1000,
 		opts = {
 			transparent = true,
 		},
@@ -25,13 +27,8 @@ return {
 	},
 	{
 		"craftzdog/solarized-osaka.nvim",
-		lazy = false,
-		priority = 1000,
 		opts = {
 			transparent = false,
 		},
 	},
-	{ "EdenEast/nightfox.nvim" },
-	{ "rebelot/kanagawa.nvim" },
-	{ "Mofiqul/dracula.nvim" },
 }
