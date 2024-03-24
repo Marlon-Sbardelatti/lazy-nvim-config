@@ -61,7 +61,9 @@ return {
     {
         "github/copilot.vim",
         keys = {
-            "<leader>dy", "Copilot enable<CR>",
+            { "<leader>ce", "<cmd>Copilot enable<cr>" },
+            { "<leader>d;", "<cmd>Copilot disable<cr>" },
+            -- { "<leader>lf", "<cmd> lua require('telescope.builtin').lsp_document_symbols({ symbols = 'Function' })<cr>" },
         },
     },
 }

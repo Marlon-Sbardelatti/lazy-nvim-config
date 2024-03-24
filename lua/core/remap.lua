@@ -2,7 +2,6 @@ vim.g.mapleader = " "
 
 --vim.keymap.set("n", "<leader>tr", vim.cmd.Ex)
 
-
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -15,10 +14,10 @@ vim.keymap.set("n", "n", "nzzzv")
 -- vim.keymap.set("i", "<C-y>", "<CR>")
 
 vim.keymap.set("n", "<leader>vwm", function()
-    require("vim-with-me").startvimwithme()
+	require("vim-with-me").startvimwithme()
 end)
 vim.keymap.set("n", "<leader>svwm", function()
-    require("vim-with-me").stopvimwithme()
+	require("vim-with-me").stopvimwithme()
 end)
 --
 -- greatest remap ever
@@ -42,7 +41,6 @@ vim.keymap.set("n", "<c-j>", "<cmd>cprev<cr>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<cr>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<cr>zz")
 
-
 vim.keymap.set("n", "<leader>s", [[:%s/\<<c-r><c-w>\>/<c-r><c-w>/gi<left><left><left>]])
 vim.keymap.set("n", "<leader>sg", [[:%s/]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<cr>", { silent = true })
@@ -51,37 +49,40 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<cr>", { silent = true })
 -- vim.keymap.set("n", "<leader>mr", "<cmd>cellularautomaton make_it_rain<cr>");
 
 vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
+	vim.cmd("so")
 end)
 
 vim.keymap.set("n", "<leader>vs", function()
-    vim.cmd("vsplit")
+	vim.cmd("vsplit")
 end)
 
 vim.keymap.set("n", "<leader>hs", function()
-    vim.cmd("split")
+	vim.cmd("split")
 end)
-vim.keymap.set("n", "<leader>dy", function()
-    vim.cmd("Copilot enable")
-end)
-vim.keymap.set("n", "<leader>d;", function()
-    vim.cmd("Copilot disable")
-end)
-vim.keymap.set("n", "<leader>pv", function()
-    vim.cmd("TroubleToggle")
-end)
+-- vim.keymap.set("n", "<leader>dy", function()
+-- 	vim.cmd("Copilot enable")
+-- end)
+-- vim.keymap.set("n", "<leader>d;", function()
+-- 	vim.cmd("Copilot disable")
+-- end)
 
 vim.keymap.set("n", "<leader>tr", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-
-
+-- vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 vim.keymap.set("n", "<leader>ta", function()
-    vim.cmd("TransparentToggle")
+	vim.cmd("TransparentToggle")
 end)
 
-vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function()
-        vim.highlight.on_yank()
-    end,
+vim.keymap.set("n", "<leader>ta", function()
+	vim.cmd("TransparentToggle")
+end)
+
+-- vim.keymap.set("n", "<leader>yf", function()
+-- 	vim.cmd("Telescope neoclip")
+-- end)
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 })
