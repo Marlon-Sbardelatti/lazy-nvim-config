@@ -1,6 +1,7 @@
 return {
+    { "ramojus/mellifluous.nvim" },
     { 'yorumicolors/yorumi.nvim' },
-    { 'ellisonleao/gruvbox.nvim' },
+    -- { 'ellisonleao/gruvbox.nvim' },
     -- { "rebelot/kanagawa.nvim" },
     {
         "cdmill/neomodern.nvim",
@@ -9,9 +10,21 @@ return {
         config = function()
             require("neomodern").setup({
                 -- optional configuration here
+                ui = {
+                    -- telescope = "borderless",
+                    plain_float = true,
+                },
+                colors = {
+                    bg = "#141414",
+                    float = "#1c1c1c"
+                },
+                plugin = {
+                    telescope = "borderless",
+                }
             })
+
             require("neomodern").load()
-            vim.cmd.colorscheme("campfire")
+            vim.cmd.colorscheme("neomodern")
         end,
     },
     {
@@ -161,7 +174,7 @@ return {
                 },
                 sidebars = { "qf", "vista_kind", "terminal", "packer" },
                 on_colors = function(colors)
-                    colors.bg = "#11121d"
+                    colors.bg = "#141414"
                     colors.bg_float = "none"
                     colors.fg_dark = "#A0A8CD"
                 end,

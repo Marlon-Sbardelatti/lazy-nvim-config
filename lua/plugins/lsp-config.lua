@@ -32,9 +32,6 @@ return {
             lspconfig.rust_analyzer.setup({
                 capabilities = capabilities,
             })
-            -- lspconfig.tsserver.setup({
-            --     capabilities = capabilities,
-            -- })
             lspconfig.html.setup({
                 -- cmd = { "vscode-html-language-server.cmd", "--stdio" },
                 capabilities = capabilities,
@@ -70,6 +67,9 @@ return {
                 capabilities = capabilities,
             })
             lspconfig.gopls.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.ts_ls.setup({
                 capabilities = capabilities,
             })
             lspconfig.pyright.setup({
