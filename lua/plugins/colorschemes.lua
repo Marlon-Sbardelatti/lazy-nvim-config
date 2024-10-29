@@ -1,8 +1,9 @@
 return {
+    { "mellow-theme/mellow.nvim" },
+    { "ribru17/bamboo.nvim" },
     { "ramojus/mellifluous.nvim" },
     { 'yorumicolors/yorumi.nvim' },
-    -- { 'ellisonleao/gruvbox.nvim' },
-    -- { "rebelot/kanagawa.nvim" },
+    { "rebelot/kanagawa.nvim" },
     {
         "cdmill/neomodern.nvim",
         lazy = false,
@@ -145,16 +146,6 @@ return {
             -- vim.cmd("colorscheme rose-pine-dawn")
         end,
     },
-    -- {
-    --     'navarasu/onedark.nvim',
-    --     name = "onedark",
-    --     opts = {
-    --         style = 'warmer',
-    --     },
-    --     -- config = function()
-    --     --     vim.cmd.colorscheme("onedark")
-    --     -- end,
-    -- },
     {
         "folke/tokyonight.nvim",
         lazy = false,
@@ -215,14 +206,6 @@ return {
         -- config = function()
         --     vim.cmd.colorscheme("ayu")
         -- end,
-    },
-    {
-        "craftzdog/solarized-osaka.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {
-            transparent = true
-        },
     },
     {
         "arturgoms/moonbow.nvim",
