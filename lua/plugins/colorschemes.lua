@@ -1,5 +1,8 @@
 return {
+    { "WTFox/jellybeans.nvim" },
     { "mellow-theme/mellow.nvim" },
+    { "sho-87/kanagawa-paper.nvim" },
+    {"sainnhe/gruvbox-material"},
     { "ribru17/bamboo.nvim" },
     { "ramojus/mellifluous.nvim" },
     { 'yorumicolors/yorumi.nvim' },

@@ -69,9 +69,9 @@ return {
             lspconfig.gopls.setup({
                 capabilities = capabilities,
             })
-            lspconfig.ts_ls.setup({
-                capabilities = capabilities,
-            })
+            -- lspconfig.ts_ls.setup({
+            --     capabilities = capabilities,
+            -- })
             lspconfig.pyright.setup({
                 capabilities = capabilities,
             })
