@@ -102,6 +102,8 @@ vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
 vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 
+vim.keymap.set("n", "<leader>cp", ":CccPick<CR>")
+
 -- jargo/java
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "java",

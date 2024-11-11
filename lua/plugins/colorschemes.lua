@@ -1,5 +1,4 @@
 return {
-    { "WTFox/jellybeans.nvim" },
     { "mellow-theme/mellow.nvim" },
     { "sho-87/kanagawa-paper.nvim" },
     {"sainnhe/gruvbox-material"},
@@ -20,7 +19,9 @@ return {
                 },
                 colors = {
                     bg = "#141414",
-                    float = "#1c1c1c"
+                    float = "#1c1c1c",
+                    -- func = "#306"
+
                 },
                 plugin = {
                     telescope = "borderless",
