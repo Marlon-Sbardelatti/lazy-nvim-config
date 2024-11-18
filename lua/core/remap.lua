@@ -34,15 +34,14 @@ vim.keymap.set("n", "<leader>Z", '"zp')
 
 vim.keymap.set("n", "<leader>np", 'o<esc>p')
 
-vim.keymap.set("n", "<leader>(x", 'o<esc>p')
-
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- this is going to get me cancelled
 vim.keymap.set("i", "<c-c>", "<esc>")
 
 -- vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<c-e>f", "<cmd>silent !tmux new tmux-sessionizer<cr>")
+-- vim.keymap.set("n", "<leader>ts", "<cmd>!tmux new tmux-sessionizer<cr>")
+vim.keymap.set("n", "<leader>TS", "<cmd>silent !tmux neww tmux-sessionizer.sh<cr>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 -- vim.keymap.set("n", "<c-k>", "<cmd>cnext<cr>zz")
@@ -80,7 +79,7 @@ vim.keymap.set("n", "<leader>tr", "<CMD>Oil<CR>", { desc = "Open parent director
 -- vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 vim.keymap.set("n", "<leader>ta", function()
-	vim.cmd("TransparentToggle")
+    vim.cmd("TransparentToggle")
 end)
 
 -- vim.keymap.set("n", "<leader>ta", function()

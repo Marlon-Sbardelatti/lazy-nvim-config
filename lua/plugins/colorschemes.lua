@@ -1,37 +1,65 @@
 return {
     { "mellow-theme/mellow.nvim" },
     { "sho-87/kanagawa-paper.nvim" },
-    {"sainnhe/gruvbox-material"},
+    { "sainnhe/gruvbox-material" },
     { "ribru17/bamboo.nvim" },
     { "ramojus/mellifluous.nvim" },
     { 'yorumicolors/yorumi.nvim' },
     { "rebelot/kanagawa.nvim" },
     {
-        "cdmill/neomodern.nvim",
+        "Marlon-Sbardelatti/zuca-nvim",
         lazy = false,
         priority = 1000,
         config = function()
             require("neomodern").setup({
                 -- optional configuration here
-                ui = {
-                    -- telescope = "borderless",
-                    plain_float = true,
-                },
-                colors = {
-                    bg = "#141414",
-                    float = "#1c1c1c",
-                    -- func = "#306"
-
-                },
-                plugin = {
-                    telescope = "borderless",
-                }
+                -- ui = {
+                --     -- telescope = "borderless",
+                --     plain_float = true,
+                -- },
+                -- -- colors = {
+                -- --     bg = "#141414",
+                -- --     float = "#1c1c1c",
+                -- --     -- constant = "#0000f3"
+                -- --     -- string = "#00d800"
+                -- --     -- comment = "#e10000"
+                -- -- },
+                -- plugin = {
+                --     telescope = "borderless",
+                -- }
             })
 
             require("neomodern").load()
-            vim.cmd.colorscheme("neomodern")
+            vim.cmd.colorscheme("zuca")
         end,
     },
+    -- {
+    --     "cdmill/neomodern.nvim",
+    --     lazy = false,
+    --     priority = 1000,
+    --     config = function()
+    --         require("neomodern").setup({
+    --             -- optional configuration here
+    --             ui = {
+    --                 -- telescope = "borderless",
+    --                 plain_float = true,
+    --             },
+    --             colors = {
+    --                 bg = "#141414",
+    --                 float = "#1c1c1c",
+    --                 -- constant = "#0000f3"
+    --                 -- string = "#00d800"
+    --                 -- comment = "#e10000"
+    --             },
+    --             plugin = {
+    --                 telescope = "borderless",
+    --             }
+    --         })
+
+    --         require("neomodern").load()
+    --         vim.cmd.colorscheme("neomodern")
+    --     end,
+    -- },
     {
         "scottmckendry/cyberdream.nvim",
         lazy = false,
