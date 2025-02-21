@@ -56,9 +56,9 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<cr>", { silent = true })
 -- vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/hetzwga/packer.lua<cr>");
 -- vim.keymap.set("n", "<leader>mr", "<cmd>cellularautomaton make_it_rain<cr>");
 
-vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
-end)
+-- vim.keymap.set("n", "<leader><leader>", function()
+--     vim.cmd("so")
+-- end)
 
 vim.keymap.set("n", "<leader>vs", function()
     vim.cmd("vsplit")

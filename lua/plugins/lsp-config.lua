@@ -13,12 +13,12 @@ return {
             auto_install = true,
         },
     },
-    {
-        "mfussenegger/nvim-jdtls",
-        dependencies = {
-            "mfussenegger/nvim-dap",
-        }
-    },
+    -- {
+    --     "mfussenegger/nvim-jdtls",
+    --     dependencies = {
+    --         "mfussenegger/nvim-dap",
+    --     }
+    -- },
 
     {
         "neovim/nvim-lspconfig",
@@ -26,11 +26,13 @@ return {
         config = function()
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-
             local lspconfig = require("lspconfig")
             --it may brake warning
             lspconfig.rust_analyzer.setup({
                 capabilities = capabilities,
+                diagnostic = {
+                    refreshSupport = false,
+                }
             })
             lspconfig.html.setup({
                 -- cmd = { "vscode-html-language-server.cmd", "--stdio" },
@@ -43,7 +45,7 @@ return {
             -- 	capabilities = capabilities,
             -- })
             -- lspconfig.jdtls.setup({
-            -- 	capabilities = capabilities,
+            --     capabilities = capabilities,
             -- })
             lspconfig.cssls.setup({
                 capabilities = capabilities,
@@ -63,9 +65,9 @@ return {
             lspconfig.emmet_language_server.setup({
                 capabilities = capabilities,
             })
-            lspconfig.angularls.setup({
-                capabilities = capabilities,
-            })
+            -- lspconfig.angularls.setup({
+            --     capabilities = capabilities,
+            -- })
             lspconfig.gopls.setup({
                 capabilities = capabilities,
             })
@@ -75,18 +77,27 @@ return {
             lspconfig.pyright.setup({
                 capabilities = capabilities,
             })
-            lspconfig.ruff.setup({
-                capabilities = capabilities,
+            require('lspconfig').ruff.setup({
+                init_options = {
+                    settings = {
+                        capabilities = capabilities,
+                        -- Server settings should go here
+                    }
+                }
             })
+
             -- lspconfig.pylsp.setup({
             --     capabilities = capabilities,
             -- })
             -- lspconfig.jedi_language_server.setup({
             --     capabilities = capabilities,
             -- })
-            -- lspconfig.basedpyright.setup({
-            --     capabilities = capabilities,
-            -- })
+            lspconfig.basedpyright.setup({
+                capabilities = capabilities,
+                handlers = { -- Remove diagnostics, because there's too much
+                    ["textDocument/publishDiagnostics"] = function() end,
+                },
+            })
             lspconfig.dartls.setup({
                 capabilities = capabilities,
                 cmd = { "dart", "language-server", "--protocol=lsp" },

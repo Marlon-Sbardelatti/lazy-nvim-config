@@ -40,13 +40,16 @@ return {
 
         keys = {
             { "<leader>yf", "<cmd>Telescope neoclip<cr>" },
-            { "<leader>pf", "<cmd>lua require('telescope.builtin').find_files()<cr>" },
-            { "<leader>pg", "<cmd>lua require('telescope.builtin').live_grep()<cr>" },
-            { "<leader>of", "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
-            { "<leader>ch", "<cmd>lua require('telescope.builtin').command_history()<cr>" },
-            { "<leader>cs", "<cmd>lua require('telescope.builtin').colorscheme()<cr>" },
-            { "<leader>bf", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>" },
-            { "<leader>lf", "<cmd> lua require('telescope.builtin').lsp_document_symbols({ symbols = 'Function' })<cr>" },
+            -- { "<leader>pf", "<cmd>lua require('telescope.builtin').find_files()<cr>" },
+            -- { "<leader>qf", "<cmd>lua require('telescope.builtin').quickfix()<cr>" },
+            -- { "<leader>pg", "<cmd>lua require('telescope.builtin').live_grep()<cr>" },
+            -- { "<leader>of", "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
+            -- { "<leader>ch", "<cmd>lua require('telescope.builtin').command_history()<cr>" },
+            -- { "<leader>cs", "<cmd>lua require('telescope.builtin').colorscheme()<cr>" },
+            -- { "<leader><leader>", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>" },
+            -- { "<leader>lf", "<cmd> lua require('telescope.builtin').lsp_document_symbols({ symbols = 'Function' })<cr>" },
+
+
             -- { "<leader>lf", "<cmd> lua require('telescope.builtin').lsp_document_symbols()<cr>" },
             -- { "<leader>lf", "<cmd> lua require('telescope.builtin').lsp_document_symbols({ignore_symbols = "array"})<cr>" },
         },

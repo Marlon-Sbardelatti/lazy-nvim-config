@@ -17,4 +17,4 @@ vim.opt.rtp:prepend(lazypath)
 require("core.remap")
 require("core.autocmds")
 require("lazy").setup("plugins")
-require'lspconfig'.angularls.setup{}
+-- require'lspconfig'.angularls.setup{}

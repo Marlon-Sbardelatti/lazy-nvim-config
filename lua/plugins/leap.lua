@@ -2,6 +2,9 @@ return {
     'ggandor/leap.nvim',
     event = "VeryLazy",
     config = function()
-        require('leap').add_default_mappings()
+        local leap = require('leap')
+        leap.add_default_mappings()
+        leap.opts.safe_labels = {}
     end
 }
+
