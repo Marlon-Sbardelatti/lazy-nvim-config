@@ -28,6 +28,18 @@ return {
                 -- plugin = {
                 --     telescope = "borderless",
                 -- }
+                on_highlights = function(highlights, colors)
+                    -- Colors for Snacks pickers
+                    highlights.SnacksPickerBoxTitle = { bg = '#1c99f2', fg = '#ffffff', bold = true }
+                    highlights.SnacksPickerInput = { bg = '#23273b', fg = '#C0CAF5' }
+                    highlights.SnacksPickerInputBorder = { bg = '#23273b', fg = '#23273b' }
+                    highlights.SnacksPickerInputTitle = { bg = '#1c99f2', fg = '#ffffff', bold = true }
+                    highlights.SnacksPickerList = { bg = '#262e46' }
+                    highlights.SnacksPickerListBorder = { bg = '#262e46', fg = '#23273b' }
+                    highlights.SnacksPickerListCursorLine = { bg = '#1a1d2f' }
+                    highlights.SnacksPickerPreviewBorder = { bg = '#16161E', fg = '#23273b' }
+                    highlights.SnacksPickerPrompt = { bg = '#23273b', fg = '#1c99f2' }
+                end,
             })
 
             require("neomodern").load()
@@ -179,33 +191,45 @@ return {
             -- vim.cmd("colorscheme rose-pine-dawn")
         end,
     },
-    -- {
-    --     "folke/tokyonight.nvim",
-    --     lazy = false,
-    --     priority = 1000,
-    --     opts = {
-    --         style = "night",
-    --         styles = {
-    --             functions = {},
-    --         },
-    --         sidebars = { "qf", "vista_kind", "terminal", "packer" },
-    --     },
-    --     config = function(_, opts)
-    --         require("tokyonight").setup({
-    --             style = "night",
-    --             styles = {
-    --                 functions = {},
-    --             },
-    --             sidebars = { "qf", "vista_kind", "terminal", "packer" },
-    --             on_colors = function(colors)
-    --                 colors.bg = "#141414"
-    --                 colors.bg_float = "none"
-    --                 colors.fg_dark = "#A0A8CD"
-    --             end,
-    --         })
-    --         -- vim.cmd.colorscheme("tokyonight-night")
-    --     end,
-    -- },
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {
+            style = "night",
+            styles = {
+                functions = {},
+            },
+            sidebars = { "qf", "vista_kind", "terminal", "packer" },
+        },
+        config = function(_, opts)
+            require("tokyonight").setup({
+                style = "night",
+                on_highlights = function(highlights, colors)
+                    -- Colors for Snacks pickers
+                    highlights.SnacksPickerBoxTitle = { bg = '#1c99f2', fg = '#ffffff', bold = true }
+                    highlights.SnacksPickerInput = { bg = '#23273b', fg = '#C0CAF5' }
+                    highlights.SnacksPickerInputBorder = { bg = '#23273b', fg = '#23273b' }
+                    highlights.SnacksPickerInputTitle = { bg = '#1c99f2', fg = '#ffffff', bold = true }
+                    highlights.SnacksPickerList = { bg = '#262e46' }
+                    highlights.SnacksPickerListBorder = { bg = '#262e46', fg = '#23273b' }
+                    highlights.SnacksPickerListCursorLine = { bg = '#1a1d2f' }
+                    highlights.SnacksPickerPreviewBorder = { bg = '#16161E', fg = '#23273b' }
+                    highlights.SnacksPickerPrompt = { bg = '#23273b', fg = '#1c99f2' }
+                end,
+                styles = {
+                    functions = {},
+                },
+                sidebars = { "qf", "vista_kind", "terminal", "packer" },
+                on_colors = function(colors)
+                    colors.bg = "#141414"
+                    colors.bg_float = "none"
+                    colors.fg_dark = "#A0A8CD"
+                end,
+            })
+            -- vim.cmd.colorscheme("tokyonight-night")
+        end,
+    },
     {
         "catppuccin/nvim",
         name = "catppuccin",

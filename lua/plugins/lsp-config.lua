@@ -13,18 +13,13 @@ return {
             auto_install = true,
         },
     },
-    -- {
-    --     "mfussenegger/nvim-jdtls",
-    --     dependencies = {
-    --         "mfussenegger/nvim-dap",
-    --     }
-    -- },
-
     {
         "neovim/nvim-lspconfig",
+        dependencies = { 'saghen/blink.cmp' },
         lazy = false,
         config = function()
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            local capabilities = require('blink.cmp').get_lsp_capabilities()
 
             local lspconfig = require("lspconfig")
             --it may brake warning

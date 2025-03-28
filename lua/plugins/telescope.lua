@@ -39,7 +39,7 @@ return {
         end,
 
         keys = {
-            { "<leader>yf", "<cmd>Telescope neoclip<cr>" },
+            -- { "<leader>yf", "<cmd>Telescope neoclip<cr>" },
             -- { "<leader>pf", "<cmd>lua require('telescope.builtin').find_files()<cr>" },
             -- { "<leader>qf", "<cmd>lua require('telescope.builtin').quickfix()<cr>" },
             -- { "<leader>pg", "<cmd>lua require('telescope.builtin').live_grep()<cr>" },
