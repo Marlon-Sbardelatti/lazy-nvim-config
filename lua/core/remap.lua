@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
---vim.keymap.set("n", "<leader>tr", vim.cmd.Ex)
+--vim.keymap.set("n", "<leader>tr", vim.cmd.Ex
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -120,3 +120,43 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.keymap.set("n", "<leader>tc", ":Tclose!<CR>")
     end,
 })
+
+vim.g.ftplugin_sql_omni_key = '<C-j>'
+
+-- sql command to run current sql file in mariadb
+vim.api.nvim_create_user_command('RunSQL', function()
+    local file = vim.fn.expand('%')
+    local db = vim.fn.input('database name: ')
+    local password = vim.fn.inputsecret('sudo password: ')
+    local cmd = string.format("echo '%s' | sudo -S mariadb --table %s < %s", password, db, file)
+
+    -- Create a new empty buffer in the current window
+    vim.cmd('enew') -- creates a new buffer
+    vim.bo.buftype = 'nofile'
+    vim.bo.bufhidden = 'wipe'
+    vim.bo.swapfile = false
+    vim.bo.filetype = 'sql' -- or 'mysql' if you have syntax for that
+    vim.api.nvim_buf_set_name(0, '[SQL Output]')
+
+    -- Capture output
+    vim.fn.jobstart(cmd, {
+        stdout_buffered = true,
+        stderr_buffered = true,
+        on_stdout = function(_, data)
+            if data then
+                vim.api.nvim_buf_set_lines(0, -1, -1, false, data)
+            end
+        end,
+        on_stderr = function(_, data)
+            if data then
+                vim.api.nvim_buf_set_lines(0, -1, -1, false, data)
+            end
+        end,
+        on_exit = function(_, code)
+            vim.api.nvim_buf_set_lines(0, -1, -1, false, { "", "-- Process exited with code: " .. code })
+        end
+    })
+end, {})
+
+vim.keymap.set("n", "<leader>rs", ":RunSQL<CR>")
+vim.keymap.set("n", "<leader>db", ":DBUI<cr>")

@@ -36,12 +36,6 @@ return {
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,
             })
-            -- lspconfig.java_language_server.setup({
-            -- 	capabilities = capabilities,
-            -- })
-            -- lspconfig.jdtls.setup({
-            --     capabilities = capabilities,
-            -- })
             lspconfig.cssls.setup({
                 capabilities = capabilities,
             })
@@ -60,15 +54,9 @@ return {
             lspconfig.emmet_language_server.setup({
                 capabilities = capabilities,
             })
-            -- lspconfig.angularls.setup({
-            --     capabilities = capabilities,
-            -- })
             lspconfig.gopls.setup({
                 capabilities = capabilities,
             })
-            -- lspconfig.ts_ls.setup({
-            --     capabilities = capabilities,
-            -- })
             lspconfig.pyright.setup({
                 capabilities = capabilities,
             })
@@ -80,6 +68,28 @@ return {
                     }
                 }
             })
+            lspconfig.dartls.setup({
+                capabilities = capabilities,
+                cmd = { "dart", "language-server", "--protocol=lsp" },
+            })
+            lspconfig.sqlls.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.sqls.setup({
+                capabilities = capabilities,
+            })
+            -- lspconfig.java_language_server.setup({
+            -- 	capabilities = capabilities,
+            -- })
+            -- lspconfig.jdtls.setup({
+            --     capabilities = capabilities,
+            -- })
+            -- lspconfig.angularls.setup({
+            --     capabilities = capabilities,
+            -- })
+            -- lspconfig.ts_ls.setup({
+            --     capabilities = capabilities,
+            -- })
 
             -- lspconfig.pylsp.setup({
             --     capabilities = capabilities,
@@ -87,19 +97,18 @@ return {
             -- lspconfig.jedi_language_server.setup({
             --     capabilities = capabilities,
             -- })
-            lspconfig.basedpyright.setup({
-                capabilities = capabilities,
-                handlers = { -- Remove diagnostics, because there's too much
-                    ["textDocument/publishDiagnostics"] = function() end,
-                },
-            })
-            lspconfig.dartls.setup({
-                capabilities = capabilities,
-                cmd = { "dart", "language-server", "--protocol=lsp" },
-            })
-            lspconfig.pbls.setup({
-                capabilities = capabilities,
-            })
+
+
+            -- lspconfig.basedpyright.setup({
+            --     capabilities = capabilities,
+            --     handlers = { -- Remove diagnostics, because there's too much
+            --         ["textDocument/publishDiagnostics"] = function() end,
+            --     },
+            -- })
+
+            -- lspconfig.pbls.setup({
+            --     capabilities = capabilities,
+            -- })
 
             vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})

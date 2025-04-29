@@ -7,6 +7,26 @@ return {
     -- { "ramojus/mellifluous.nvim" },
     -- { 'yorumicolors/yorumi.nvim' },
     -- { "rebelot/kanagawa.nvim" },
+    -- Lazy
+    -- Using lazy.nvim
+    {
+        "metalelf0/black-metal-theme-neovim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require("black-metal").setup({
+                -- optional configuration here
+                variant = "dark"
+            })
+            -- require("black-metal").load()
+        end,
+    },
+    {
+        "vague2k/vague.nvim",
+    },
+    {
+        "nyoom-engineering/oxocarbon.nvim"
+    },
     {
         "Marlon-Sbardelatti/zuca-nvim",
         lazy = false,
@@ -145,13 +165,13 @@ return {
     --{ "shrikecode/kyotonight.vim" },
     --{ "hachy/eva01.vim" },
     --{ "bluz71/vim-moonfly-colors" },
-    --{
-    --    "olimorris/onedarkpro.nvim",
-    --    name = "one",
-    --    -- config = function()
-    --    --     vim.cmd.colorscheme("onedark_dark")
-    --    -- end,
-    --},
+    {
+        "olimorris/onedarkpro.nvim",
+        name = "one",
+        -- config = function()
+        --     vim.cmd.colorscheme("onedark_dark")
+        -- end,
+    },
     {
         "rose-pine/neovim",
         config = function(_, opts)
