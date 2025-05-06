@@ -113,7 +113,7 @@ return {
             vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
             vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
-            vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+            vim.keymap.set("n", "<leader>cd", vim.lsp.buf.code_action, {})
             vim.keymap.set("n", "<leader>ts", vim.diagnostic.open_float, {})
             vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, {})
         end,
