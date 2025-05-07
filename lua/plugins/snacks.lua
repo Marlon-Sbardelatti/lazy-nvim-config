@@ -31,7 +31,7 @@ return {
                                 {
                                     box = 'vertical',
                                     { win = 'list',  title = ' Results ', title_pos = 'center', border = 'rounded' },
-                                    { win = 'input', height = 1,          border = 'rounded',     title = '{title} {live} {flags}', title_pos = 'center' },
+                                    { win = 'input', height = 1,          border = 'rounded',   title = '{title} {live} {flags}', title_pos = 'center' },
                                 },
                                 {
                                     win = 'preview',
@@ -78,6 +78,8 @@ return {
                 { "<leader>cR",       function() Snacks.rename.rename_file() end,          desc = "Rename File" },
                 { "<leader>gB",       function() Snacks.gitbrowse() end,                   desc = "Git Browse",            mode = { "n", "v" } },
                 { "<leader>gg",       function() Snacks.lazygit() end,                     desc = "Lazygit" },
+                { "<c-w>z",        function() Snacks.zen() end,                         desc = "Toggle Zen Mode" },
+                { "<c-w>f",        function() Snacks.zen.zoom() end,                    desc = "Toggle Zoom" },
                 -- Top Pickers & Explorer
                 -- { "<leader>bf",       function() Snacks.picker.buffers() end,               desc = "Buffers" },
                 -- { "<leader>sS",       function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
@@ -117,8 +119,6 @@ return {
                 -- { "<leader>su",       function() Snacks.picker.undo() end,                  desc = "Undo History" },
                 -- LSP
                 -- Other
-                -- { "<leader>z",        function() Snacks.zen() end,                                            desc = "Toggle Zen Mode" },
-                -- { "<leader>Z",        function() Snacks.zen.zoom() end,                                       desc = "Toggle Zoom" },
                 -- { "<leader>.",        function() Snacks.scratch() end,                                        desc = "Toggle Scratch Buffer" },
                 -- { "<leader>S",        function() Snacks.scratch.select() end,                                 desc = "Select Scratch Buffer" },
                 -- { "<leader>n",        function() Snacks.notifier.show_history() end,                          desc = "Notification History" },
