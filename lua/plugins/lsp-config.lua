@@ -60,11 +60,10 @@ return {
             lspconfig.pyright.setup({
                 capabilities = capabilities,
             })
-            require('lspconfig').ruff.setup({
+            lspconfig.ruff.setup({
                 init_options = {
                     settings = {
                         capabilities = capabilities,
-                        -- Server settings should go here
                     }
                 }
             })
