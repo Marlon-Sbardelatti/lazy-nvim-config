@@ -20,6 +20,10 @@ return {
         config = function()
             -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local capabilities = require('blink.cmp').get_lsp_capabilities()
+            -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+            -- capabilities.textDocument.completion.completionItem.snippetSupport = true
+            -- capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities())
+            -- capabilities.offsetEncoding = { 'utf-16' }
 
             local lspconfig = require("lspconfig")
             --it may brake warning
@@ -59,13 +63,36 @@ return {
             })
             lspconfig.pyright.setup({
                 capabilities = capabilities,
+                -- settings = {
+                --     python = {
+                --         analysis = {
+                --             diagnosticMode = "workspace", -- explicitly override
+                --             autoSearchPaths = true,
+                --             useLibraryCodeForTypes = true,
+                --         }
+                --     }
+                -- }
             })
             lspconfig.ruff.setup({
-                init_options = {
-                    settings = {
-                        capabilities = capabilities,
-                    }
-                }
+                capabilities = capabilities,
+                -- init_options = {
+                --     settings = {
+                --         lineLength = 200,
+                --         -- Organize imports on save
+                --         organizeImports = true,
+                --         -- Show syntax errors
+                --         showSyntaxErrors = true,
+                --         -- Log level
+                --         logLevel = 'info',
+                --         fixAll = true,
+                --         codeAction = {
+                --             lint = {
+                --                 enable = true,
+                --                 preview = true,
+                --             },
+                --         },
+                --     }
+                -- }
             })
             lspconfig.dartls.setup({
                 capabilities = capabilities,

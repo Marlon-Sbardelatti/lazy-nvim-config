@@ -13,8 +13,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
 require("core.remap")
-require("core.autocmds")
 require("lazy").setup("plugins")
 -- require'lspconfig'.angularls.setup{}

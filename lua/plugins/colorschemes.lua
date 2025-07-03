@@ -9,18 +9,18 @@ return {
     -- { "rebelot/kanagawa.nvim" },
     -- Lazy
     -- Using lazy.nvim
-    {
-        "metalelf0/black-metal-theme-neovim",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            require("black-metal").setup({
-                -- optional configuration here
-                variant = "dark"
-            })
-            -- require("black-metal").load()
-        end,
-    },
+    -- {
+    --     "metalelf0/black-metal-theme-neovim",
+    --     lazy = false,
+    --     priority = 1000,
+    --     config = function()
+    --         require("black-metal").setup({
+    --             -- optional configuration here
+    --             variant = "dark"
+    --         })
+    --         -- require("black-metal").load()
+    --     end,
+    -- },
     {
         "vague2k/vague.nvim",
     },
