@@ -136,4 +136,41 @@ return {
         --     t({ "", "\\end{" }), rep(1), t("}"),
         -- })
     }),
+
+
+    ls.add_snippets("dart", {
+        -- BLOC snippet
+        s("cbloc", {
+            t("import 'package:bloc/bloc.dart';"),
+            t({ "", "import 'package:equatable/equatable.dart';", "" }),
+            t("part '"), f(function(args) return args[1][1]:lower() end, { 1 }), t("_event.dart';"),
+            t({ "", "part '" }), f(function(args) return args[1][1]:lower() end, { 1 }), t({ "_state.dart';", "" }),
+            t({ "", "class " }), i(1, "ClassName"),
+            t("Bloc extends Bloc<"), rep(1), t("Event, "), rep(1), t({ "State> {", "" }),
+            t("  "), rep(1), t("Bloc() : super("), rep(1), t({ "Initial()) {", "" }),
+            t("    on<"), rep(1), t({ "Event>((event, emit) {", "" }),
+            t("      // TODO: implement event handler"),
+            t({ "", "    });", "  }", "}" }),
+        }),
+
+        -- EVENT snippet
+        s("cevent", {
+            t("part of '"), f(function(args) return args[1][1]:lower() end, { 1 }), t({ "_bloc.dart';", "" }),
+            t("sealed class "), i(1, "ClassName"), t({ "Event extends Equatable {", "" }),
+            t("  const "), rep(1), t({ "Event();", "", "  @override" }),
+            t({ "", "  List<Object> get props => [];", "}", "" }),
+        }),
+
+        -- STATE snippet
+        s("cstate", {
+            t("part of '"), f(function(args) return args[1][1]:lower() end, { 1 }), t({ "_bloc.dart';", "" }),
+            t("sealed class "), i(1, "ClassName"), t({ "State extends Equatable {", "" }),
+            t("  const "), rep(1), t({ "State();", "", "  @override" }),
+            t({ "", "  List<Object> get props => [];", "}", "" }),
+            t("final class "), rep(1), t("Initial extends "), rep(1), t({ "State {}", "" }),
+            t("final class "), rep(1), t("Error extends "), rep(1), t({ "State {}", "" }),
+        }),
+    })
+
+
 }
