@@ -5,7 +5,7 @@ return {
   },
   opts = {
     bloc_type = 'equatable', -- Choose from: 'default', 'equatable', 'freezed'
-    use_sealed_classes = false,
+    use_sealed_classes = true,
     enable_code_actions = true,
   }
 }

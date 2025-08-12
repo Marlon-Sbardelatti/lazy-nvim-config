@@ -1,4 +1,5 @@
 local ls = require("luasnip")
+
 local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
@@ -24,24 +25,6 @@ return {
     end, { silent = true }),
 
     ls.add_snippets("lua", {
-        -- s("hello", {
-        --     t('print("hello '),
-        --     i(1),
-        --     t(' world")'),
-        -- }),
-        -- s("fi", {
-        --     t('if '),
-        --     i(1, "true"),
-        --     t(' then '),
-        --     i(2),
-        --     t(' end')
-        -- }),
-
-        -- s("beg", {
-        --     t("\\begin{"), i(1), t("}"),
-        --     t({ "", "\t"}), i(0),
-        --     t({ "", "\\end{" }), rep(1), t("}"),
-        -- })
     }),
     ls.add_snippets("html", {
         s("sso", {
@@ -53,48 +36,17 @@ return {
             t('let '), i(1),
             t(' = document.getElementById("'), i(2),
             t('")'),
-            -- t('print("hello '),
-            -- i(1),
-            -- t(' world")'),
         }),
         s("gcl", {
             t('let '), i(1),
             t(' = document.getElementsByClassName("'), i(2),
             t('")'),
-            -- t('print("hello '),
-            -- i(1),
-            -- t(' world")'),
         }),
         s("cl", {
             t('console.log('),
             i(1),
             t(')'),
-            -- t('print("hello '),
-            -- i(1),
-            -- t(' world")'),
         }),
-        -- s("fn", {
-        --     t('function '), i(1),
-        --     t('('), i(2),
-        --     t(')'),
-        --     t('{}'),
-        --     -- t('print("hello '),
-        --     -- i(1),
-        --     -- t(' world")'),
-        -- }),
-        -- s("fi", {
-        --     t('if '),
-        --     i(1, "true"),
-        --     t(' then '),
-        --     i(2),
-        --     t(' end')
-        -- }),
-
-        -- s("beg", {
-        --     t("\\begin{"), i(1), t("}"),
-        --     t({ "", "\t"}), i(0),
-        --     t({ "", "\\end{" }), rep(1), t("}"),
-        -- })
     }),
 
     ls.add_snippets("typescript", {
@@ -102,39 +54,17 @@ return {
             t('let '), i(1),
             t(' = document.getElementById("'), i(2),
             t('")'),
-            -- t('print("hello '),
-            -- i(1),
-            -- t(' world")'),
         }),
         s("gcl", {
             t('let '), i(1),
             t(' = document.getElementsByClassName("'), i(2),
             t('")'),
-            -- t('print("hello '),
-            -- i(1),
-            -- t(' world")'),
         }),
         s("cl", {
             t('console.log('),
             i(1),
             t(')'),
-            -- t('print("hello '),
-            -- i(1),
-            -- t(' world")'),
         }),
-        -- s("fi", {
-        --     t('if '),
-        --     i(1, "true"),
-        --     t(' then '),
-        --     i(2),
-        --     t(' end')
-        -- }),
-
-        -- s("beg", {
-        --     t("\\begin{"), i(1), t("}"),
-        --     t({ "", "\t"}), i(0),
-        --     t({ "", "\\end{" }), rep(1), t("}"),
-        -- })
     }),
 
 
@@ -171,6 +101,5 @@ return {
             t("final class "), rep(1), t("Error extends "), rep(1), t({ "State {}", "" }),
         }),
     })
-
 
 }
