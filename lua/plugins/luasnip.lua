@@ -100,6 +100,12 @@ return {
             t("final class "), rep(1), t("Initial extends "), rep(1), t({ "State {}", "" }),
             t("final class "), rep(1), t("Error extends "), rep(1), t({ "State {}", "" }),
         }),
+        --
+        -- PROPS snippet
+        s("cprops ", {
+            t({ "@override", ""}),
+            t("List<Object> get props => ["), i(1, "props"), t("];")
+        }),
     })
 
 }
