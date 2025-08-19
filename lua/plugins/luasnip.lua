@@ -103,9 +103,24 @@ return {
         --
         -- PROPS snippet
         s("cprops ", {
-            t({ "@override", ""}),
+            t({ "@override", "" }),
             t("List<Object> get props => ["), i(1, "props"), t("];")
         }),
+
+        s("stls", {
+            t({ "import 'package:flutter/material.dart';", "" }),
+            t({ "", "" }),
+            t("class "), i(1, "ClassName"), t({ " extends StatelessWidget {", "" }),
+            t("  const "), rep(1), t({ "({super.key});", "" }),
+            t({ "", "" }),
+            t({ "  @override", "" }),
+            t({ "  Widget build(BuildContext context) {", "" }),
+            t({ "    return Scaffold(", "" }),
+            t({ "      body: const Text('Hello'),", "" }),
+            t({ "    );", "" }),
+            t({ "  }", "" }),
+            t({ "}" }),
+        })
     })
 
 }
