@@ -61,7 +61,9 @@ return {
             lspconfig.gopls.setup({
                 capabilities = capabilities,
             })
-
+            lspconfig.clangd.setup({
+                capabilities = capabilities,
+            })
             -- python working
             lspconfig.pyright.setup({
                 capabilities = capabilities,
