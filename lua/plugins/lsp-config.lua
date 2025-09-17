@@ -82,6 +82,18 @@ return {
             lspconfig.sqls.setup({
                 capabilities = capabilities,
             })
+            lspconfig.docker_compose_language_service.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.dockerls.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.angularls.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.ts_ls.setup({
+                capabilities = capabilities,
+            })
             -- lspconfig.java_language_server.setup({
             -- 	capabilities = capabilities,
             -- })
