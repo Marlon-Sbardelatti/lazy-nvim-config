@@ -114,6 +114,14 @@ return {
                 capabilities = capabilities,
             })
 
+            vim.lsp.config("kube-linter", {
+                capabilities = capabilities,
+            })
+
+            vim.lsp.config("yaml-language-server", {
+                capabilities = capabilities,
+            })
+
             vim.lsp.enable({
                 "rust_analyzer",
                 "html",
@@ -135,6 +143,8 @@ return {
                 "dockerls",
                 "angularls",
                 "ts_ls",
+                "kube-linter",
+                "yaml-language-server"
             })
 
             vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
@@ -143,111 +153,6 @@ return {
             vim.keymap.set("n", "<leader>cd", vim.lsp.buf.code_action, {})
             vim.keymap.set("n", "<leader>ts", vim.diagnostic.open_float, {})
             vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, {})
-
-            -- local lspconfig = require("lspconfig")
-
-            --it may brake warning
-            -- lspconfig.rust_analyzer.setup({
-            --     capabilities = capabilities,
-            --     diagnostic = {
-            --         refreshSupport = false,
-            --     }
-            -- })
-            --
-            -- lspconfig.html.setup({
-            --     -- cmd = { "vscode-html-language-server.cmd", "--stdio" },
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.lua_ls.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.cssls.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.biome.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.cssmodules_ls.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.eslint.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.emmet_ls.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.emmet_language_server.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.gopls.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.clangd.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- -- python working
-            -- lspconfig.pyright.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.ruff.setup({
-            --     capabilities = capabilities,
-            -- })
-
-            -- -- lspconfig.dartls.setup({
-            -- --     capabilities = capabilities,
-            -- --     cmd = { "dart", "language-server", "--protocol=lsp" },
-            -- -- })
-            -- lspconfig.sqlls.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.sqls.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.docker_compose_language_service.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.dockerls.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.angularls.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.ts_ls.setup({
-            --     capabilities = capabilities,
-            -- })
-            --
-            --
-            -- lspconfig.java_language_server.setup({
-            -- 	capabilities = capabilities,
-            -- })
-            -- lspconfig.jdtls.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.angularls.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.ts_ls.setup({
-            --     capabilities = capabilities,
-            -- })
-
-            -- lspconfig.pylsp.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.jedi_language_server.setup({
-            --     capabilities = capabilities,
-            -- })
-
-
-            -- lspconfig.basedpyright.setup({
-            --     capabilities = capabilities,
-            --     handlers = { -- Remove diagnostics, because there's too much
-            --         ["textDocument/publishDiagnostics"] = function() end,
-            --     },
-            -- })
-
-            -- lspconfig.pbls.setup({
-            --     capabilities = capabilities,
-            -- })
         end,
     },
 }
