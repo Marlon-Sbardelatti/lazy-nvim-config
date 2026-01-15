@@ -1,14 +1,34 @@
 return {
+    { "ramojus/mellifluous.nvim" },
+    {"kdheepak/monochrome.nvim"},
     {
-        "vague2k/vague.nvim",
+        "dgox16/oldworld.nvim",
+
+        -- config = function()
+        --     vim.cmd.colorscheme("oldworld")
+        -- end
+    },
+    { "mellow-theme/mellow.nvim" },
+    { "bluz71/vim-moonfly-colors" },
+    { "slugbyte/lackluster.nvim" },
+    { "rebelot/kanagawa.nvim" },
+    { 'projekt0n/github-nvim-theme', name = 'github-theme' },
+    {
+        "vague2k/vague.nvim"
     },
     {
         "webhooked/kanso.nvim",
         lazy = false,
         priority = 1000,
+        config = function()
+            require("kanso").setup({
+                italics = false
+            })
+            -- vim.cmd.colorscheme("kanso-zen")
+        end
     },
     {
-        "nyoom-engineering/oxocarbon.nvim"
+        "ramojus/mellifluous.nvim",
     },
     {
         "Marlon-Sbardelatti/zuca-nvim",
@@ -16,21 +36,6 @@ return {
         priority = 1000,
         config = function()
             require("neomodern").setup({
-                -- optional configuration here
-                -- ui = {
-                --     -- telescope = "borderless",
-                --     plain_float = true,
-                -- },
-                -- colors = {
-                --     bg = "#141414",
-                --     float = "#1c1c1c",
-                --     -- constant = "#0000f3"
-                --     -- string = "#00d800"
-                --     -- comment = "#e10000"
-                -- },
-                -- plugin = {
-                --     telescope = "borderless",
-                -- }
                 on_highlights = function(highlights, colors)
                     -- Colors for Snacks pickers
                     highlights.SnacksPickerBoxTitle = { bg = '#1c99f2', fg = '#ffffff', bold = true }
@@ -46,7 +51,7 @@ return {
             })
 
             require("neomodern").load()
-            vim.cmd.colorscheme("zuca")
+            vim.cmd.colorscheme("roseprime")
         end,
     },
     {

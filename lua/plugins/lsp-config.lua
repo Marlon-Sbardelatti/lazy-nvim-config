@@ -76,11 +76,37 @@ return {
 
             vim.lsp.config("pyright", {
                 capabilities = capabilities,
+                -- settings = {
+                --     python = {
+                --         analysis = {
+                --             typeCheckingMode = "off", -- deixa o ty cuidar disso
+                --         },
+                --     }
+                -- },
+                -- on_attach = function(client)
+                --     client.server_capabilities.hoverProvider = false
+                -- end,
             })
+
+            -- vim.lsp.config('ty', {
+            --     capabilities = capabilities
+            --     -- settings = {
+            --     --     ty = {
+            --     --         completions = {
+            --     --             autoImport = true,
+            --     --         },
+            --     --     },
+            --     -- },
+            -- })
+            -- vim.lsp.config("pyrefly", {
+            --     capabilities = capabilities,
+            -- })
 
             vim.lsp.config("ruff", {
                 capabilities = capabilities,
             })
+
+
             vim.lsp.config("prettier", {
                 capabilities = capabilities,
             })
@@ -135,6 +161,8 @@ return {
                 "gopls",
                 "clangd",
                 "pyright",
+                -- "ty",
+                -- "pyrefly",
                 "ruff",
                 "prettier",
                 "sqlls",

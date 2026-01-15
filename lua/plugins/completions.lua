@@ -86,14 +86,14 @@ return {
     {
         { "rafamadriz/friendly-snippets" },
     },
-    {
-        "github/copilot.vim",
-        keys = {
-            { "<leader>ce", "<cmd>Copilot enable<cr>" },
-            { "<leader>d;", "<cmd>Copilot disable<cr>" },
-            -- { "<leader>lf", "<cmd> lua require('telescope.builtin').lsp_document_symbols({ symbols = 'Function' })<cr>" },
-        },
-    },
+    -- {
+    --     "github/copilot.vim",
+    --     keys = {
+    --         { "<leader>ce", "<cmd>Copilot enable<cr>" },
+    --         { "<leader>d;", "<cmd>Copilot disable<cr>" },
+    --         -- { "<leader>lf", "<cmd> lua require('telescope.builtin').lsp_document_symbols({ symbols = 'Function' })<cr>" },
+    --     },
+    -- },
     -- {
     --     "hrsh7th/nvim-cmp",
     --     config = function()

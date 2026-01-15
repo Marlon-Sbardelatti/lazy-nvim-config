@@ -63,3 +63,8 @@ vim.keymap.set("n", "<leader>cp", ":CccPick<CR>")
 
 vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap)')
 vim.keymap.set('n',             'S', '<Plug>(leap-from-window)')
+
+vim.keymap.set("n", "<leader>>", ":vertical resize +20<CR>")
+vim.keymap.set("n", "<leader><", ":vertical resize -20<CR>")
+vim.keymap.set("n", "<leader>+", ":resize +10<CR>")
+vim.keymap.set("n", "<leader>-", ":resize -10<CR>")
