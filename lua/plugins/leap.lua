@@ -1,5 +1,5 @@
 return {
-    'ggandor/leap.nvim',
+    'https://codeberg.org/andyg/leap.nvim',
     event = "VeryLazy",
     config = function()
         local leap = require('leap')

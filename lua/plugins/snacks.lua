@@ -10,7 +10,9 @@ return {
                 dashboard = { enabled = false },
                 explorer = { enabled = false },
                 indent = { enabled = false },
-                input = { enabled = false },
+                input = {
+                    enabled = true,
+                },
                 notifier = {
                     enabled = true,
                     timeout = 3000,
@@ -74,18 +76,18 @@ return {
                 { "gr",               function() Snacks.picker.lsp_references() end,       nowait = true,                  desc = "References" },
                 { "gI",               function() Snacks.picker.lsp_implementations() end,  desc = "Goto Implementation" },
                 { "gy",               function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
-                { "gai", function() Snacks.picker.lsp_incoming_calls() end, desc = "C[a]lls Incoming" },
-                { "gao", function() Snacks.picker.lsp_outgoing_calls() end, desc = "C[a]lls Outgoing" },
+                { "gai",              function() Snacks.picker.lsp_incoming_calls() end,   desc = "C[a]lls Incoming" },
+                { "gao",              function() Snacks.picker.lsp_outgoing_calls() end,   desc = "C[a]lls Outgoing" },
                 { "<leader>ss",       function() Snacks.picker.lsp_symbols() end,          desc = "LSP Symbols" },
                 { "<leader>cR",       function() Snacks.rename.rename_file() end,          desc = "Rename File" },
                 { "<leader>gB",       function() Snacks.gitbrowse() end,                   desc = "Git Browse",            mode = { "n", "v" } },
                 { "<leader>gg",       function() Snacks.lazygit() end,                     desc = "Lazygit" },
                 { "<c-w>z",           function() Snacks.zen() end,                         desc = "Toggle Zen Mode" },
                 { "<c-w>f",           function() Snacks.zen.zoom() end,                    desc = "Toggle Zoom" },
+                { "<leader>e",        function() Snacks.explorer() end,                    desc = "File Explorer" },
                 -- Top Pickers & Explorer
                 -- { "<leader>bf",       function() Snacks.picker.buffers() end,               desc = "Buffers" },
                 -- { "<leader>sS",       function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
-                -- { "<leader>e",        function() Snacks.explorer() end,                     desc = "File Explorer" },
                 -- { "<leader>,",        function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
                 -- { "<leader>n",       function() Snacks.picker.notifications() end,                           desc = "Notification History" },
                 -- find
