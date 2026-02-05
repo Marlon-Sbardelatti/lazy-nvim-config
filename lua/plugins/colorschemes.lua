@@ -23,6 +23,11 @@ return {
             vim.cmd.colorscheme("roseprime")
         end,
     },
+      { "RRethy/base16-nvim",
+        -- config = function()
+        --     vim.cmd.colorscheme("base16-chinoiserie-morandi")
+        -- end
+    },
     -- { "ramojus/mellifluous.nvim" },
     -- {"kdheepak/monochrome.nvim"},
     -- {
