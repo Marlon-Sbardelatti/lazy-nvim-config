@@ -99,7 +99,7 @@ return {
                 -- { "<leader>gL",       function() Snacks.picker.git_log_line() end,          desc = "Git Log Line" },
                 -- { "<leader>gs",       function() Snacks.picker.git_status() end,            desc = "Git Status" },
                 -- { "<leader>gS",       function() Snacks.picker.git_stash() end,             desc = "Git Stash" },
-                -- { "<leader>gd",       function() Snacks.picker.git_diff() end,              desc = "Git Diff (Hunks)" },
+                -- { "<leader>GD",       function() Snacks.picker.git_diff() end,              desc = "Git Diff (Hunks)" },
                 -- { "<leader>gf",       function() Snacks.picker.git_log_file() end,          desc = "Git Log File" },
                 -- Grep
                 -- { "<leader>sg",       function() Snacks.picker.grep() end,                                    desc = "Grep" },
@@ -128,7 +128,7 @@ return {
                 -- { "<leader>n",        function() Snacks.notifier.show_history() end,                          desc = "Notification History" },
                 -- { "<leader>bd",       function() Snacks.bufdelete() end,                                      desc = "Delete Buffer" },
                 -- { "<leader>un",       function() Snacks.notifier.hide() end,                                  desc = "Dismiss All Notifications" },
-                -- { "<c-/>",           function() Snacks.terminal() end,                                       desc = "Toggle Terminal" },
+                -- { "<c-G>",           function() Snacks.terminal.toggle() end,                                       desc = "Toggle Terminal" },
                 -- { "<c-_>",           function() Snacks.terminal() end,                                       desc = "which_key_ignore" },
                 -- { "]]",              function() Snacks.words.jump(vim.v.count1) end,                         desc = "Next Reference",           mode = { "n", "t" } },
                 -- { "[[",              function() Snacks.words.jump(-vim.v.count1) end,                        desc = "Prev Reference",           mode = { "n", "t" } },
