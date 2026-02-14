@@ -26,6 +26,7 @@ return {
             return {
                 { "<leader>pf",       function() fzf.files() end,                 desc = "Find Files" },
                 { "<leader>gw",       function() fzf.grep_cword() end,                 desc = "Grep Cursor Word" },
+                { "<leader>gW",       function() fzf.grep_cWORD() end,                 desc = "Grep Cursor Word" },
                 { "<leader>pg",       function() fzf.live_grep() end,             desc = "Grep" },
                 { "<leader>of",       function() fzf.oldfiles() end,              desc = "Recent Files" },
                 { "<leader>rs",       function() fzf.resume() end,              desc = "Resume Picker" },
