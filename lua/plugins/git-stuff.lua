@@ -1,7 +1,7 @@
 return {
     {
         "tpope/vim-fugitive",
-        cmd = { "Git", "G" },
+        md = { "Git", "G" },
         keys = {
             { "<leader>gs", "<cmd>Git<CR>", desc = "Git Status" },
         },
