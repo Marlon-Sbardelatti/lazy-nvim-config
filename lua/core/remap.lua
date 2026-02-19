@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.omni_sql_no_default_maps = 1
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
