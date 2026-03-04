@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.g.omni_sql_no_default_maps = 1
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -47,10 +48,6 @@ end)
 
 vim.keymap.set("n", "<leader>tr", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
-vim.keymap.set("n", "<leader>ta", function()
-    vim.cmd("TransparentToggle")
-end)
-
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
         vim.highlight.on_yank()
@@ -83,4 +80,4 @@ vim.keymap.set("n", "<leader>>", ":vertical resize +20<CR>")
 vim.keymap.set("n", "<leader><", ":vertical resize -20<CR>")
 vim.keymap.set("n", "<leader>+", ":resize +10<CR>")
 vim.keymap.set("n", "<leader>-", ":resize -10<CR>")
-vim.keymap.set("n", "<leader>tn", ":tabnew <CR>")
+vim.keymap.set("n", "<leader>Tn", ":tabnew <CR>")
