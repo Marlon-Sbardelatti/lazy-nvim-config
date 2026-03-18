@@ -27,6 +27,9 @@ return {
                     refreshSupport = false,
                 },
             })
+            vim.lsp.config("bashls", {
+                capabilities = capabilities,
+            })
 
             vim.lsp.config("html", {
                 capabilities = capabilities,
@@ -34,6 +37,25 @@ return {
 
             vim.lsp.config("lua_ls", {
                 capabilities = capabilities,
+                settings = {
+                    Lua = {
+                        runtime = {
+                            version = "LuaJIT",
+                        },
+                        diagnostics = {
+                            globals = { "love" },
+                        },
+                        workspace = {
+                            library = {
+                                vim.fn.expand("~/.local/share/lua-types/love2d/library"),
+                            },
+                            checkThirdParty = false,
+                        },
+                        telemetry = {
+                            enable = false,
+                        },
+                    },
+                },
             })
 
             vim.lsp.config("cssls", {
@@ -166,13 +188,16 @@ return {
                 "angularls",
                 "ts_ls",
                 "kube-linter",
-                "yaml-language-server"
+                "yaml-language-server",
+                "bashls"
             })
 
             vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
             vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
-            vim.keymap.set("n", "<leader>cd", vim.lsp.buf.code_action, {})
+            vim.keymap.set("n", "<leader>cd", function()
+                require("fzf-lua").lsp_code_actions()
+            end, {})
             vim.keymap.set("n", "<leader>ts", vim.diagnostic.open_float, {})
             vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, {})
         end,
