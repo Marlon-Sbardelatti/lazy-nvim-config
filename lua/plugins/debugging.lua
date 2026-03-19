@@ -1,15 +1,26 @@
 return {
     "mfussenegger/nvim-dap",
+    keys = {
+        { "<leader>dt", function() require("dap").toggle_breakpoint() end },
+        { "<F1>", function() require("dap").continue() end },
+        { "<F2>", function() require("dap").step_into() end },
+        { "<F3>", function() require("dap").step_over() end },
+        { "<F4>", function() require("dap").step_out() end },
+        { "<F5>", function() require("dap").step_back() end },
+        { "<F12>", function() require("dap").restart() end },
+    },
     dependencies = {
-        "rcarriga/nvim-dap-ui",
+        {
+            "rcarriga/nvim-dap-ui",
+            dependencies = { "nvim-neotest/nvim-nio" },
+        },
         "leoluz/nvim-dap-go",
-        "nvim-neotest/nvim-nio"
     },
     config = function()
         local dap = require("dap")
         local dapui = require("dapui")
 
-        require("dapui").setup()
+        dapui.setup()
         require("dap-go").setup()
 
         dap.listeners.before.attach.dapui_config = function()
@@ -24,13 +35,5 @@ return {
         dap.listeners.before.event_exited.dapui_config = function()
             dapui.close()
         end
-        vim.keymap.set('n', '<leader>dt', dap.toggle_breakpoint, {})
-        -- vim.keymap.set('n', '<leader>dc', dap.continue, {})
-        vim.keymap.set('n', '<F1>', dap.continue, {})
-        vim.keymap.set('n', '<F2>', dap.step_into, {})
-        vim.keymap.set('n', '<F3>', dap.step_over, {})
-        vim.keymap.set('n', '<F4>', dap.step_out, {})
-        vim.keymap.set('n', '<F5>', dap.step_back, {})
-        vim.keymap.set('n', '<F12>', dap.restart, {})
-    end
+    end,
 }

@@ -1,4 +1,6 @@
 vim.g.mapleader = " "
+vim.g.omni_sql_no_default_maps = 1
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -30,7 +32,9 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>j", "<cmd>cnext<cr>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>cprev<cr>zz")
 
-vim.keymap.set("n", "<leader>st", [[:%s/\<<c-r><c-w>\>/<c-r><c-w>/gi<left><left><left>]])
+vim.keymap.set("n", "<leader>st", [[:%s/\<<C-r><C-w>\>/]])
+vim.keymap.set("n", "<leader>sT", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gi<Left><Left><Left>")
+
 vim.keymap.set("n", "<leader>sg", [[:%s/]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<cr>", { silent = true })
 
@@ -44,14 +48,22 @@ end)
 
 vim.keymap.set("n", "<leader>tr", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
-vim.keymap.set("n", "<leader>ta", function()
-    vim.cmd("TransparentToggle")
-end)
-
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
         vim.highlight.on_yank()
     end,
+})
+
+vim.api.nvim_create_autocmd('ModeChanged', {
+    pattern = '*',
+    callback = function()
+        if ((vim.v.event.old_mode == 's' and vim.v.event.new_mode == 'n') or vim.v.event.old_mode == 'i')
+            and require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()]
+            and not require('luasnip').session.jump_active
+        then
+            require('luasnip').unlink_current()
+        end
+    end
 })
 
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
@@ -60,3 +72,12 @@ vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 
 vim.keymap.set("n", "<leader>cp", ":CccPick<CR>")
+
+vim.keymap.set({ 'n', 'x', 'o' }, 's', '<Plug>(leap)')
+vim.keymap.set('n', 'S', '<Plug>(leap-from-window)')
+
+vim.keymap.set("n", "<leader>>", ":vertical resize +20<CR>")
+vim.keymap.set("n", "<leader><", ":vertical resize -20<CR>")
+vim.keymap.set("n", "<leader>+", ":resize +10<CR>")
+vim.keymap.set("n", "<leader>-", ":resize -10<CR>")
+vim.keymap.set("n", "<leader>Tn", ":tabnew <CR>")

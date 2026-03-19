@@ -9,19 +9,11 @@ return {
 		null_ls.setup({
 			sources = {
 				require("none-ls.diagnostics.eslint_d"),
-				-- require("none-ls.diagnostics.stylua"),
-				-- require("none-ls.diagnostics.prettier"),
-				-- require("none-ls.diagnostics.biome"),
-				-- require("none-ls.diagnostics.htmlhint"),
-
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.prettier,
 				null_ls.builtins.formatting.biome,
 				null_ls.builtins.diagnostics.erb_lint,
-                -- null_ls.builtins.diagnostics.htmlhint,
-				-- null_ls.builtins.diagnostics.eslint_d,
-				-- null_ls.builtins.diagnostics.rubocop,
-				-- null_ls.builtins.formatting.rubocop,
+                null_ls.builtins.diagnostics.kube_linter,
 			},
 		})
 

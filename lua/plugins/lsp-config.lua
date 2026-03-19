@@ -18,118 +18,180 @@ return {
         dependencies = { 'saghen/blink.cmp' },
         lazy = false,
         config = function()
-            -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local capabilities = require('blink.cmp').get_lsp_capabilities()
-            -- local capabilities = vim.lsp.protocol.make_client_capabilities()
-            -- capabilities.textDocument.completion.completionItem.snippetSupport = true
-            -- capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities())
-            -- capabilities.offsetEncoding = { 'utf-16' }
 
-            local lspconfig = require("lspconfig")
-            --it may brake warning
-            lspconfig.rust_analyzer.setup({
+            -- define once
+            vim.lsp.config("rust_analyzer", {
                 capabilities = capabilities,
                 diagnostic = {
                     refreshSupport = false,
-                }
+                },
             })
-            lspconfig.html.setup({
-                -- cmd = { "vscode-html-language-server.cmd", "--stdio" },
-                capabilities = capabilities,
-            })
-            lspconfig.lua_ls.setup({
-                capabilities = capabilities,
-            })
-            lspconfig.cssls.setup({
-                capabilities = capabilities,
-            })
-            lspconfig.biome.setup({
-                capabilities = capabilities,
-            })
-            lspconfig.cssmodules_ls.setup({
-                capabilities = capabilities,
-            })
-            lspconfig.eslint.setup({
-                capabilities = capabilities,
-            })
-            lspconfig.emmet_ls.setup({
-                capabilities = capabilities,
-            })
-            lspconfig.emmet_language_server.setup({
-                capabilities = capabilities,
-            })
-            lspconfig.gopls.setup({
-                capabilities = capabilities,
-            })
-            lspconfig.clangd.setup({
-                capabilities = capabilities,
-            })
-            -- python working
-            lspconfig.pyright.setup({
-                capabilities = capabilities,
-            })
-            lspconfig.ruff.setup({
+            vim.lsp.config("bashls", {
                 capabilities = capabilities,
             })
 
-            lspconfig.dartls.setup({
-                capabilities = capabilities,
-                cmd = { "dart", "language-server", "--protocol=lsp" },
-            })
-            lspconfig.sqlls.setup({
+            vim.lsp.config("html", {
                 capabilities = capabilities,
             })
-            lspconfig.sqls.setup({
+
+            vim.lsp.config("lua_ls", {
+                capabilities = capabilities,
+                settings = {
+                    Lua = {
+                        runtime = {
+                            version = "LuaJIT",
+                        },
+                        diagnostics = {
+                            globals = { "love" },
+                        },
+                        workspace = {
+                            library = {
+                                vim.fn.expand("~/.local/share/lua-types/love2d/library"),
+                            },
+                            checkThirdParty = false,
+                        },
+                        telemetry = {
+                            enable = false,
+                        },
+                    },
+                },
+            })
+
+            vim.lsp.config("cssls", {
                 capabilities = capabilities,
             })
-            lspconfig.docker_compose_language_service.setup({
+
+            vim.lsp.config("biome", {
                 capabilities = capabilities,
             })
-            lspconfig.dockerls.setup({
+
+            vim.lsp.config("cssmodules_ls", {
                 capabilities = capabilities,
             })
-            lspconfig.angularls.setup({
+
+            vim.lsp.config("eslint", {
                 capabilities = capabilities,
             })
-            lspconfig.ts_ls.setup({
+
+            vim.lsp.config("emmet_ls", {
                 capabilities = capabilities,
             })
-            -- lspconfig.java_language_server.setup({
-            -- 	capabilities = capabilities,
+
+            vim.lsp.config("emmet_language_server", {
+                capabilities = capabilities,
+            })
+
+            vim.lsp.config("gopls", {
+                capabilities = capabilities,
+            })
+
+            vim.lsp.config("clangd", {
+                capabilities = capabilities,
+            })
+            vim.lsp.config("csharp_ls", {
+                capabilities = capabilities,
+            })
+
+            vim.lsp.config("pyright", {
+                capabilities = capabilities,
+            })
+
+            -- vim.lsp.config('ty', {
+            --     capabilities = capabilities
+            --     -- settings = {
+            --     --     ty = {
+            --     --         completions = {
+            --     --             autoImport = true,
+            --     --         },
+            --     --     },
+            --     -- },
             -- })
-            -- lspconfig.jdtls.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.angularls.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.ts_ls.setup({
+            -- vim.lsp.config("pyrefly", {
             --     capabilities = capabilities,
             -- })
 
-            -- lspconfig.pylsp.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.jedi_language_server.setup({
-            --     capabilities = capabilities,
-            -- })
+            vim.lsp.config("ruff", {
+                capabilities = capabilities,
+            })
 
 
-            -- lspconfig.basedpyright.setup({
+            vim.lsp.config("prettier", {
+                capabilities = capabilities,
+            })
+
+            -- vim.lsp.config("dartls", {
             --     capabilities = capabilities,
-            --     handlers = { -- Remove diagnostics, because there's too much
-            --         ["textDocument/publishDiagnostics"] = function() end,
-            --     },
+            --     cmd = { "dart", "language-server", "--protocol=lsp" },
             -- })
 
-            -- lspconfig.pbls.setup({
-            --     capabilities = capabilities,
-            -- })
+            vim.lsp.config("sqlls", {
+                capabilities = capabilities,
+            })
+
+            vim.lsp.config("sqls", {
+                capabilities = capabilities,
+            })
+
+            vim.lsp.config("docker_compose_language_service", {
+                capabilities = capabilities,
+            })
+
+            vim.lsp.config("dockerls", {
+                capabilities = capabilities,
+            })
+
+            vim.lsp.config("angularls", {
+                capabilities = capabilities,
+            })
+
+            vim.lsp.config("ts_ls", {
+                capabilities = capabilities,
+            })
+
+            vim.lsp.config("kube-linter", {
+                capabilities = capabilities,
+            })
+
+            vim.lsp.config("yaml-language-server", {
+                capabilities = capabilities,
+            })
+
+            vim.lsp.enable({
+                "rust_analyzer",
+                "html",
+                "lua_ls",
+                "cssls",
+                "biome",
+                "cssmodules_ls",
+                "eslint",
+                "emmet_ls",
+                "emmet_language_server",
+                "gopls",
+                "clangd",
+                "csharp_ls",
+                "pyright",
+                -- "ty",
+                -- "pyrefly",
+                "ruff",
+                "prettier",
+                "sqlls",
+                "sqls",
+                "docker_compose_language_service",
+                "dockerls",
+                "angularls",
+                "ts_ls",
+                "kube-linter",
+                "yaml-language-server",
+                "bashls"
+            })
 
             vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
             vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
-            vim.keymap.set("n", "<leader>cd", vim.lsp.buf.code_action, {})
+            vim.keymap.set("n", "<leader>cd", function()
+                require("fzf-lua").lsp_code_actions()
+            end, {})
             vim.keymap.set("n", "<leader>ts", vim.diagnostic.open_float, {})
             vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, {})
         end,
