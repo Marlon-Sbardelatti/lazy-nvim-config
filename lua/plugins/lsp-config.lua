@@ -89,19 +89,12 @@ return {
             vim.lsp.config("clangd", {
                 capabilities = capabilities,
             })
+            vim.lsp.config("csharp_ls", {
+                capabilities = capabilities,
+            })
 
             vim.lsp.config("pyright", {
                 capabilities = capabilities,
-                -- settings = {
-                --     python = {
-                --         analysis = {
-                --             typeCheckingMode = "off", -- deixa o ty cuidar disso
-                --         },
-                --     }
-                -- },
-                -- on_attach = function(client)
-                --     client.server_capabilities.hoverProvider = false
-                -- end,
             })
 
             -- vim.lsp.config('ty', {
@@ -176,6 +169,7 @@ return {
                 "emmet_language_server",
                 "gopls",
                 "clangd",
+                "csharp_ls",
                 "pyright",
                 -- "ty",
                 -- "pyrefly",

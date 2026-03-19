@@ -17,7 +17,7 @@ return {
                 timeout = 3000,
             },
             picker = {
-                -- enabled = true,
+                enabled = false,
                 -- layout = {
                 --     preset = "my_snack"
                 -- },
