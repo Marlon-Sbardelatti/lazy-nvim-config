@@ -15,6 +15,7 @@ return {
             dependencies = { "nvim-neotest/nvim-nio" },
         },
         "leoluz/nvim-dap-go",
+        "mfussenegger/nvim-dap-python"
     },
     config = function()
         local dap = require("dap")
@@ -22,6 +23,7 @@ return {
 
         dapui.setup()
         require("dap-go").setup()
+        require("dap-python").setup("uv")
 
         dap.listeners.before.attach.dapui_config = function()
             dapui.open()
