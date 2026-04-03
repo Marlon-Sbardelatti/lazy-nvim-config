@@ -11,7 +11,7 @@ return {
                 require("none-ls.diagnostics.eslint_d"),
                 null_ls.builtins.formatting.stylua,
                 null_ls.builtins.formatting.prettier,
-                null_ls.builtins.completion.spell,
+                -- null_ls.builtins.completion.spell,
                 require("none-ls.formatting.ruff_format"),
                 -- require("none-ls.diagnostics.ruff"),
                 null_ls.builtins.formatting.biome,
