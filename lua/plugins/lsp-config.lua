@@ -93,20 +93,20 @@ return {
                 capabilities = capabilities,
             })
 
-            vim.lsp.config("pyright", {
-                capabilities = capabilities,
-            })
-
-            -- vim.lsp.config('ty', {
-            --     capabilities = capabilities
-            --     -- settings = {
-            --     --     ty = {
-            --     --         completions = {
-            --     --             autoImport = true,
-            --     --         },
-            --     --     },
-            --     -- },
+            -- vim.lsp.config("pyright", {
+            --     capabilities = capabilities,
             -- })
+
+            vim.lsp.config('ty', {
+                capabilities = capabilities
+                -- settings = {
+                --     ty = {
+                --         completions = {
+                --             autoImport = true,
+                --         },
+                --     },
+                -- },
+            })
             -- vim.lsp.config("pyrefly", {
             --     capabilities = capabilities,
             -- })
@@ -170,8 +170,8 @@ return {
                 "gopls",
                 "clangd",
                 "csharp_ls",
-                "pyright",
-                -- "ty",
+                -- "pyright",
+                "ty",
                 -- "pyrefly",
                 "ruff",
                 "prettier",
