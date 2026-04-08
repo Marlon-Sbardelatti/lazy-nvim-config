@@ -17,7 +17,8 @@ return {
                 table.insert(names, client.name)
             end
 
-            return table.concat(names, " ")
+            -- return " " .. table.concat(names, " ")
+            return " " .. table.concat(names, " ")
         end
 
         require('lualine').setup {
