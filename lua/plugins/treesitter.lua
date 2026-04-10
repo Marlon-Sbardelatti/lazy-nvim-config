@@ -6,23 +6,48 @@ return {
         config = function()
             vim.opt.termguicolors = true
 
-            local ft_to_parser = {
-                typescriptreact = "tsx",
-                javascriptreact = "tsx",
-                cs = "c_sharp",
-                sh = "bash",
-            }
+            vim.api.nvim_create_autocmd('FileType', {
+                desc = "Enable Treesitter",
+                group = vim.api.nvim_create_augroup("enable_treesitter", {}),
+                callback = function(event)
+                    local bufnr = event.buf
+                    local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
+                    -- Start treesitter for this buffer
+                    local start_ts = function()
+                        vim.treesitter.start(bufnr, parser_name)
+                        -- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+                        -- vim.wo.foldmethod = 'expr'
+                        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                    end
 
-            vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
-                callback = function(args)
-                    local ft = vim.bo[args.buf].filetype
-                    if ft == "" then return end
+                    -- Skip if no filetype
+                    if filetype == "" then
+                        return
+                    end
 
-                    local parser = ft_to_parser[ft] or ft
+                    -- Get parser name based on filetype
+                    local parser_name = vim.treesitter.language.get_lang(filetype)
+                    if not parser_name then
+                        vim.notify("No treesitter parser found for filetype: " .. filetype)
 
-                    pcall(vim.cmd, "TSInstall " .. parser)
+                        -- Use regex based syntax-highlighting as fallback
+                        vim.bo[bufnr].syntax = "ON"
+                        return
+                    end
 
-                    pcall(vim.treesitter.start, args.buf)
+                    -- Try to get existing parser
+                    local ts_config = require('nvim-treesitter.config')
+                    if not vim.tbl_contains(ts_config.get_available(), parser_name) then return end
+
+                    local already_installed = ts_config.get_installed('parsers')
+                    if not vim.tbl_contains(already_installed, parser_name) then
+                        -- Install parser
+                        vim.notify("Installing parser for " .. parser_name, vim.log.levels.INFO)
+                        require('nvim-treesitter').install({ parser_name }):await(start_ts)
+                        return
+                    end
+
+                    start_ts()
                 end,
             })
         end,

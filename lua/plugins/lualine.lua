@@ -2,7 +2,7 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     config = function()
-        -- LSP status function
+    --     -- LSP status function
         local function lsp_status()
             local clients = vim.lsp.get_clients({
                 bufnr = vim.api.nvim_get_current_buf()
@@ -57,7 +57,7 @@ return {
 
 
 
-        -- EVIL
+        -- -- EVIL
         -- -- Eviline config for lualine
         -- -- Author: shadmansaleh
         -- -- Credit: glepnir
